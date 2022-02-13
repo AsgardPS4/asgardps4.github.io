@@ -187,6 +187,20 @@
           }
         };
         }
+
+        function load_poc(){
+var xhr = new XMLHttpRequest();
+xhr.responseType = "arraybuffer";
+xhr.open("GET",PLfile,true);
+xhr.send();
+xhr.onreadystatechange=function(){
+if (xhr.readyState == 4){
+  PLS = xhr.response;
+  setTimeout(poc, 1500);
+  }
+};
+}
+
         
         function awaitpl() {
         window.msgs.innerHTML="<h1 style=color:#87FF33>"+LoadedMSG+"</h1>";
@@ -199,7 +213,7 @@
         LoadedMSG="GoldHEN v2.1.1 Loaded... Press OK Now !!!";
         PLfile = "goldhen_2.1.1_900.bin";
         exec_type = "payload";
-        toogle_payload();
+        load_poc();
         }
         
         function load_gamePayload(bin, msg){
@@ -207,7 +221,7 @@
         LoadedMSG=msg;
         PLfile = bin;
         exec_type = "payload";
-        toogle_payload();
+        load_poc();
         }
         
         
@@ -217,7 +231,7 @@
         LoadedMSG="Ps4Debug Loaded... Press OK Now !!!";
         PLfile = "ps4debug.bin";
         exec_type = "payload";
-        toogle_payload();
+        load_poc();
         }
         
         function load_enablebUpdates(){
@@ -225,7 +239,7 @@
         LoadedMSG="Enable Updates Loaded... Press OK Now !!!";
         PLfile = "enableupdate.bin";
         exec_type = "payload";
-        toogle_payload();
+        load_poc();
         }
         
         function load_disableUpdates(){
@@ -233,7 +247,7 @@
         LoadedMSG="Disable Updates Loaded... Press OK Now !!!";
         PLfile = "disableupdates.bin";
         exec_type = "payload";
-        toogle_payload();
+        load_poc();
         }
       
         
@@ -242,7 +256,7 @@
         LoadedMSG="Disable ASLR Loaded... Press OK Now !!!";
         PLfile = "daslr.bin";
         exec_type = "payload";
-        toogle_payload();
+        load_poc();
         }
 
         </script>

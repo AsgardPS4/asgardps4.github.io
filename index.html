@@ -239,6 +239,12 @@ function goldhen21(){
     load_poc();
 }
 
+function load_Asgard(){
+    progress.innerHTML="Payload loading... please wait"; LoadedMSG="Payload Loaded";
+    PLfile = "Asgard.bin";
+    out_jb = "AllPL";     load_poc();
+}
+
 
 function allmods(){
 all.style.display = "none";
@@ -259,7 +265,8 @@ gtav.style.display = "none";
 <h1 id=progress style='font-size:25px;text-align:center;text-shadow: 4px 4px 4px black;color:white;'>Status</h1>
 <div id=all style="text-align:center;">
 
-<button id="button-Payload" onMouseOver="alert('TEST')"; onmouseout="progress.innerHTML='Status'" type="button" onclick="goldhen21()" style='font-size:20px;text-align:center;text-shadow: 4px 4px 4px black;color:#CEC52A' > GoldHenV2.1.1</button>
+<button id="button-Payload" onMouseOver=""; onmouseout="progress.innerHTML='Status'" type="button" onclick="goldhen21()" style='font-size:20px;text-align:center;text-shadow: 4px 4px 4px black;color:#CEC52A' > GoldHenV2.1.1</button>
+<button id="button-Payload" onMouseOver=""; onmouseout="progress.innerHTML='Status'" type="button" onclick="load_Asgard()" style='font-size:20px;text-align:center;text-shadow: 4px 4px 4px black;color:#CEC52A' > Asgard Test </button>
 
 <br><br></div>
 <script>

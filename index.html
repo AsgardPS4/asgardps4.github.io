@@ -200,6 +200,19 @@ if (xhr.readyState == 4){
 };
 }
 
+
+function LoaderPL() {
+if (out_jb == "AllPL")  {
+var payload_buffer = chain.syscall(477, 0, 0x300000 , 7, 0x1002, -1, 0);
+            var pl = p.array_from_address(payload_buffer, PLS.byteLength*4);
+            var buf = new Uint32Array(PLS);
+            pl.set(buf,0);
+            var pthread = p.malloc(0x10);
+            chain.call(libKernelBase.add32(OFFSET_lk_pthread_create), pthread, 0x0, payload_buffer, 0);
+            allset();
+}
+}
+
         
         function awaitpl() {
         window.msgs.innerHTML="<h1 style=color:#87FF33>"+LoadedMSG+"</h1>";
@@ -209,10 +222,10 @@ if (xhr.readyState == 4){
         
         function load_goldhen211(){
         msgs.innerHTML="Loading GoldHEN v2.1.1 ... Please Wait !!!";
-        LoadedMSG="GoldHEN v2.1.1 Loaded... Press OK Now !!!";
-        PLfile = "goldhen_2.1.1_900.bin";
-        exec_type = "payload";
-        load_poc();
+        LoadedMSG="GoldHEN 2.1.1 Loaded";
+    PLfile = "goldhen_2.1.1_900.bin";
+    out_jb = "AllPL";
+    load_poc();
         }
         
         function load_gamePayloadRDR2(){

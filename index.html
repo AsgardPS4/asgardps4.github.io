@@ -242,7 +242,7 @@ var payload_buffer = chain.syscall(477, 0, 0x300000 , 7, 0x1002, -1, 0);
         msgs.innerHTML="Loading Ps4Debug... Please Wait !!!";
         LoadedMSG="Ps4Debug Loaded... Press OK Now !!!";
         PLfile = "ps4debug.bin";
-        exec_type = "payload";
+        out_jb = "payload";
         load_poc();
         }
         
@@ -250,7 +250,7 @@ var payload_buffer = chain.syscall(477, 0, 0x300000 , 7, 0x1002, -1, 0);
         msgs.innerHTML="Loading Enable Updates... Please Wait !!!";
         LoadedMSG="Enable Updates Loaded... Press OK Now !!!";
         PLfile = "enableupdate.bin";
-        exec_type = "payload";
+        out_jb = "payload";
         load_poc();
         }
         
@@ -258,7 +258,7 @@ var payload_buffer = chain.syscall(477, 0, 0x300000 , 7, 0x1002, -1, 0);
         msgs.innerHTML="Loading Disable Updates... Please Wait !!!";
         LoadedMSG="Disable Updates Loaded... Press OK Now !!!";
         PLfile = "disableupdates.bin";
-        exec_type = "payload";
+        out_jb = "payload";
         load_poc();
         }
       
@@ -267,7 +267,7 @@ var payload_buffer = chain.syscall(477, 0, 0x300000 , 7, 0x1002, -1, 0);
         msgs.innerHTML="Loading Disable ASLR... Please Wait !!";
         LoadedMSG="Disable ASLR Loaded... Press OK Now !!!";
         PLfile = "daslr.bin";
-        exec_type = "payload";
+        out_jb = "payload";
         load_poc();
         }
 

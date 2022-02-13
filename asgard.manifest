@@ -1,0 +1,17 @@
+CACHE MANIFEST
+
+# random: c2471c18df8976596f28c8bad47e343c
+
+CACHE:
+asgard.manifest
+daslr.bin
+disableupdates.bin
+enableupdate.bin
+index.html
+ps4debug.bin
+RDR2_129.bin
+Style.css
+images/asgard_bg.jpg
+
+NETWORK:
+*

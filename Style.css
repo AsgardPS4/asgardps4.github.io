@@ -383,8 +383,7 @@ html, body{
     #msgs2 {
      font-weight:bold;
      text-shadow: 4px 4px 4px black;
-     padding-right: 65px;
-     margin-right: 65px;
+
      font-size:17px;
     }
     .pointer {cursor: pointer;}

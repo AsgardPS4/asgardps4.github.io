@@ -171,47 +171,31 @@
         <script>
         var exec_type = "";
         
-        function toogle_payload(){
-        var req = new XMLHttpRequest();
-        req.responseType = "arraybuffer";
-        req.open("GET",PLfile,true);
-        req.send();
-        req.onreadystatechange=function(){
-        if (req.readyState == 4){
-          var tmp0 = new Uint8Array(req.response.byteLength);
-          tmp0.set(new Uint8Array(req.response), 0);
-          var payload = new Uint32Array(tmp0);
-          ghPL = payload;
+        function load_poc(){
+        var xhr = new XMLHttpRequest();
+        xhr.responseType = "arraybuffer";
+        xhr.open("GET",PLfile,true);
+        xhr.send();
+        xhr.onreadystatechange=function(){
+        if (xhr.readyState == 4){
+          PLS = xhr.response;
           setTimeout(poc, 1500);
           }
         };
         }
 
-        function load_poc(){
-var xhr = new XMLHttpRequest();
-xhr.responseType = "arraybuffer";
-xhr.open("GET",PLfile,true);
-xhr.send();
-xhr.onreadystatechange=function(){
-if (xhr.readyState == 4){
-  PLS = xhr.response;
-  setTimeout(poc, 1500);
-  }
-};
-}
 
-
-function LoaderPL() {
-if (out_jb == "AllPL")  {
-var payload_buffer = chain.syscall(477, 0, 0x300000 , 7, 0x1002, -1, 0);
-            var pl = p.array_from_address(payload_buffer, PLS.byteLength*4);
-            var buf = new Uint32Array(PLS);
-            pl.set(buf,0);
-            var pthread = p.malloc(0x10);
-            chain.call(libKernelBase.add32(OFFSET_lk_pthread_create), pthread, 0x0, payload_buffer, 0);
-            allset();
-}
-}
+        function LoaderPL() {
+        if (out_jb == "AllPL")  {
+        var payload_buffer = chain.syscall(477, 0, 0x300000 , 7, 0x1002, -1, 0);
+                    var pl = p.array_from_address(payload_buffer, PLS.byteLength*4);
+                    var buf = new Uint32Array(PLS);
+                    pl.set(buf,0);
+                    var pthread = p.malloc(0x10);
+                    chain.call(libKernelBase.add32(OFFSET_lk_pthread_create), pthread, 0x0, payload_buffer, 0);
+                    allset();
+        }
+        }
 
         
         function awaitpl() {
@@ -223,16 +207,16 @@ var payload_buffer = chain.syscall(477, 0, 0x300000 , 7, 0x1002, -1, 0);
         function load_goldhen211(){
         msgs.innerHTML="Loading GoldHEN v2.1.1 ... Please Wait !!!";
         LoadedMSG="GoldHEN 2.1.1 Loaded";
-    PLfile = "goldhen_2.1.1_900.bin";
-    out_jb = "AllPL";
-    load_poc();
+        PLfile = "goldhen_2.1.1_900.bin";
+        out_jb = "AllPL";
+        load_poc();
         }
         
         function load_gamePayloadRDR2(){
         msgs.innerHTML="Loading RDR2 1.29 Game Payload...";
         LoadedMSG="Asgard RDR2 1.29 Payload loaded!";
         PLfile = "RDR2_129.bin";
-        out_jb = "payload";
+        out_jb = "AllPL";
         load_poc();
         }
         
@@ -242,7 +226,7 @@ var payload_buffer = chain.syscall(477, 0, 0x300000 , 7, 0x1002, -1, 0);
         msgs.innerHTML="Loading Ps4Debug... Please Wait !!!";
         LoadedMSG="Ps4Debug Loaded... Press OK Now !!!";
         PLfile = "ps4debug.bin";
-        out_jb = "payload";
+        out_jb = "AllPL";
         load_poc();
         }
         
@@ -250,7 +234,7 @@ var payload_buffer = chain.syscall(477, 0, 0x300000 , 7, 0x1002, -1, 0);
         msgs.innerHTML="Loading Enable Updates... Please Wait !!!";
         LoadedMSG="Enable Updates Loaded... Press OK Now !!!";
         PLfile = "enableupdate.bin";
-        out_jb = "payload";
+        out_jb = "AllPL";
         load_poc();
         }
         
@@ -258,7 +242,7 @@ var payload_buffer = chain.syscall(477, 0, 0x300000 , 7, 0x1002, -1, 0);
         msgs.innerHTML="Loading Disable Updates... Please Wait !!!";
         LoadedMSG="Disable Updates Loaded... Press OK Now !!!";
         PLfile = "disableupdates.bin";
-        out_jb = "payload";
+        out_jb = "AllPL";
         load_poc();
         }
       
@@ -267,7 +251,7 @@ var payload_buffer = chain.syscall(477, 0, 0x300000 , 7, 0x1002, -1, 0);
         msgs.innerHTML="Loading Disable ASLR... Please Wait !!";
         LoadedMSG="Disable ASLR Loaded... Press OK Now !!!";
         PLfile = "daslr.bin";
-        out_jb = "payload";
+        out_jb = "AllPL";
         load_poc();
         }
 
